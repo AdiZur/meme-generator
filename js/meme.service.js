@@ -73,8 +73,6 @@ function switchLine() {
     console.log(gMeme.selectedLineIdx)
     let newLine = gMeme.selectedLineIdx++
     if (gMeme.selectedLineIdx >= gMeme.lines.length) newLine = gMeme.selectedLineIdx = 0
-    console.log(newLine)
-    // return newLine
 }
 
 function setFont(font) {
