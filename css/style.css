@@ -1,8 +1,16 @@
-* {
-    box-sizing: border-box;
-}
+/* SETUP  */
+@import 'setup/vars.css';
+@import 'setup/typography.css';
 
-body {
-    margin: 0;
-    background-color: aqua;
-}
+/* BASE */
+@import url('basic/base.css');
+@import 'basic/layout.css';
+@import 'basic/helpers.css';
+
+/* COMPONENTS */
+@import 'components/main-header.css'; 
+@import 'components/editor-section.css';
+@import 'components/gallery-section.css';
+@import 'components/footer.css';
+@import 'components/screen.css';
+@import 'basic/mq.css'; 

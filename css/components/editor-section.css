@@ -1,0 +1,9 @@
+.editor .canvas-container {
+    /* background-color: black; */
+    height: 40vh;
+    width: 40vw;
+}
+
+.meme-editor {
+    display: none;
+}

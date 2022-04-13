@@ -6,14 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Meme Generator</title>
+    <title>Meme Generator Adi Zur Zeitoun</title>
 </head>
 
-<body>
-    <header>
+<body onload="initPage()">
+    <header class="main-header">
+        <div class="logo"><img src="img/system/LOGO.png" alt="" class="logo-image" /></div>
+        <nav class="main-nav flex space-between">
+            <ul class="flex space-between clean-list">
+                <li>Gallery</li>
+                <li>Memes</li>
+                <li>About</li>
+            </ul>
+        </nav>
+    </header class="main-hesder flex space-between">
+    <section class="meme-editor">
+        <div class="canvas-container">
+            <canvas id="my-canvas" width="400" height="400"></canvas>
+        </div>
+        <div class="editor-tools">
+            <input type="text" name="txt-line" placeholder="TEXT COMES HERE" onkeyup="onChangeLineTxt(this.value)">
+        </div>
+    </section>
 
-    </header>
+    <section class="gallery">
+
+    </section>
+
+
     <script src="js/meme.service.js"></script>
+    <script src="js/gallery.controller.js"></script>
+    <script src="js/gallery.service.js"></script>
     <script src="js/meme.controller.js"></script>
 </body>
 
