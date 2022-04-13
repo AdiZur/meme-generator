@@ -1,7 +1,7 @@
 'use ctrict'
 let gElCanvas, gCtx;
 
-renderMeme()
+// renderMeme()
 
 function renderMeme() {
     gElCanvas = document.querySelector('#my-canvas')
@@ -21,20 +21,110 @@ function drawImg(meme, width, height) {
     };
 }
 
+
+
 function drawText(meme, x, y) {
-    gCtx.font = `${meme.lines[0].size}px Impact`
-    gCtx.fillStyle = 'white'
-    gCtx.strokeStyle = 'black'
-    gCtx.textBaseline = 'Top'
-    gCtx.textAlign = `${meme.lines[0].align}`
-    gCtx.lineWidth = 2;
-    gCtx.fillText(meme.lines[0].txt, x, y);
-    gCtx.strokeText(meme.lines[0].txt, x, y);
-    gCtx.fill();
+    // console.log(x)
+    // console.log(y)
+    let lines = meme.lines
+    const idx = meme.selectedImgId
+    // console.log(idx)
+    const line = meme.lines[idx]
+    // console.log(txt)
+    lines.forEach(line => {
+        gCtx.font = `${line.size}px ${line.font}`
+        gCtx.fillStyle = line.color
+        gCtx.strokeStyle = 'black'
+        // gCtx.textBaseline = 'Top'
+        gCtx.textAlign = `${line.align}`
+        gCtx.lineWidth = 2;
+        gCtx.fillText(line.txt, line.x, line.y);
+        gCtx.strokeText(line.txt, line.x, line.y);
+        gCtx.fill();
+    })
 }
 
 function onChangeLineTxt(value) {
-    setLineTxt(value)
+    if (document.querySelector('.txt-line').value) setLineTxt(value)
+    renderMeme()
+}
+
+function onChangeTxtColor(color) {
+    console.log(color)
+    changeTxtColor(color)
+    renderMeme()
+}
+
+function onChangeFontSize(value) {
+    console.log('fontsize')
+    setFontSize(value)
+    renderMeme()
+}
+
+function onAddNewLine() {
+    addNewTextLine()
+    // switchLine()
+    // onSwitchLine()
+    renderMeme()
+}
+
+function onSwitchLine() {
+    let meme = getMeme()
+    console.log(meme.lines)
+    let newCurrLine = switchLine()
+    // console.log(newCurrLine)
+    // document.querySelector('.txt-line').value = meme.lines[newCurrLine].txt;
+    renderMeme()
+}
+
+function downloadCanvas(elLink) {
+    const data = gElCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'canvas.jpg'
+}
+
+function uploadImg() {
+    const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
+
+    // A function to be called if request succeeds
+    function onSuccess(uploadedImgUrl) {
+        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
+
+        document.querySelector('.share-container').innerHTML = `
+        <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+           Share   
+        </a>`
+    }
+    doUploadImg(imgDataUrl, onSuccess);
+}
+
+function doUploadImg(imgDataUrl, onSuccess) {
+
+    const formData = new FormData();
+    formData.append('img', imgDataUrl)
+
+    fetch('//ca-upload.com/here/upload.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(res => res.text())
+        .then((url) => {
+            console.log('Got back live url:', url);
+            onSuccess(url)
+        })
+        .catch((err) => {
+            console.error(err)
+        })
+}
+
+function onChangeFont(font) {
+    setFont(font)
+    renderMeme()
+}
+
+function onChangeAlign(value) {
+    setAlign(value)
     renderMeme()
 }
 

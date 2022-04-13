@@ -1,3 +1,16 @@
-.main-header .logo img.logo-img {
-    height: 40px
+.header-container {
+    height: 4rem;
+    background-color: var(--clr1);
+}
+
+
+/* .main-header .logo {
+    height: 40px;
+} */
+.header-container .logo img {
+    height: 40px;
+}
+
+.main-header.main-nav a {
+    width: 100px;
 }
