@@ -1,9 +1,129 @@
 .editor .canvas-container {
+    align-items: center;
     /* background-color: black; */
     height: 40vh;
     width: 40vw;
 }
 
 .meme-editor {
+    margin-bottom: 50px;
     display: none;
 }
+
+#my-canvas {
+    border-radius: 20px;
+}
+.control-box {
+    width: 400px;
+    height: 50vh;
+    display: grid;
+    grid-template: repeat(5, 70px) / repeat(5, 50px);
+    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
+    gap: 5px; 
+    justify-content: center;
+    align-content: center;
+    grid-template-areas: 
+    "txt-line txt-line txt-line txt-line txt-line"
+    "switch-line-btn move-line-down-btn move-line-up-btn add-new-line-btn delete-line-btn"
+    "increase-font-btn decrease-font-btn align-left-btn align-center-btn align-right-btn"
+    "font-family font-family font-family txt-stroke-btn color-btn "
+    "download-btn download-btn . share-btn share-btn";
+}
+
+.txt-line {
+    grid-area: txt-line;
+}
+
+.switch-line-btn {
+    grid-area: switch-line-btn;
+}
+
+.add-new-line-btn {
+    grid-area: add-new-line-btn;
+}
+
+.delete-line-btn {
+    grid-area: delete-line-btn;
+}
+
+.increase-font-btn {
+    grid-area: increase-font-btn;
+}
+
+.decrease-font-btn {
+    grid-area: decrease-font-btn;
+}
+
+.align-left-btn {
+    grid-area: align-left-btn;
+}
+
+.align-center-btn {
+    grid-area: align-center-btn;
+}
+
+.align-right-btn {
+    grid-area: align-right-btn;
+}
+
+.font-family {
+    grid-area: font-family;
+}
+
+.color-btn {
+    grid-area: color-btn;
+}
+.download-btn {
+    grid-area: download-btn;
+    text-decoration: none;
+    color: black;
+    background-color: var(--clr1);
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+}
+
+
+.share-btn {
+    grid-area: share-btn;
+    background-color: var(--clr1);
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+
+}
+
+.txt-stroke-btn {
+    grid-area: txt-stroke-btn;
+}
+
+input {
+    border-radius: 20px;
+    border: none;
+}
+
+button {
+    background-color: var(--clr3);
+    border: none;
+    border-radius: 10px;
+    height: 45px;
+    width: 45px;
+}
+
+button img{
+    height: 30px;
+    width: 30px;
+}
+
+select.font-family {
+    border-radius: 20px;
+    border: none;
+}
+
+/* input[type=color] {
+    display: none;
+} */
+
+/* .meme-editor {
+    margin-top: 40px;
+} */

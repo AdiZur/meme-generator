@@ -1,0 +1,16 @@
+footer {
+    position: fixed;
+    height: 103px;
+    background-color: var(--clr1);
+    bottom: 0;
+    padding-top: 20px;
+    width: 100%;
+}
+
+footer .logo-image {
+    height: 40px;
+}
+
+footer p {
+    color: var(--clr3);
+}

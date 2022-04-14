@@ -10,29 +10,70 @@
 </head>
 
 <body onload="initPage()">
-    <header class="main-header">
-        <div class="logo"><img src="img/system/LOGO.png" alt="" class="logo-image" /></div>
-        <nav class="main-nav flex space-between">
-            <ul class="flex space-between clean-list">
-                <li>Gallery</li>
-                <li>Memes</li>
-                <li>About</li>
-            </ul>
-        </nav>
-    </header class="main-hesder flex space-between">
-    <section class="meme-editor">
-        <div class="canvas-container">
+    <header class="header-container">
+        <div class="main-header flex align-center main-layout space-between">
+            <div class="logo"><img src="img/system/LOGO.png" alt="" class="logo-image" /></div>
+            <nav class="main-nav-container">
+                <ul class="main-nav clean-list flex space-between">
+                    <li class="flex align-center content-center" onclick="onGallery()">Gallery</li>
+                    <li class="flex align-center content-center">Memes</li>
+                    <li class="flex align-center content-center">About</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="meme-editor main-layout flex align-center main-layout space-between">
+        <div class="canvas-container flex align-center content-center">
             <canvas id="my-canvas" width="400" height="400"></canvas>
-        </div>
-        <div class="editor-tools">
-            <input type="text" name="txt-line" placeholder="TEXT COMES HERE" onkeyup="onChangeLineTxt(this.value)">
+            <div class="control-box">
+                <input class="txt-line" type="text" name="txt-line" placeholder="TEXT COMES HERE"
+                    onkeyup="onChangeLineTxt(this.value)">
+                <button class="color-btn"><img src="img/system/ICONS/paint-board-and-brush.png"><input type="color"
+                        name="txt-color" onchange="onChangeTxtColor(this.value)"></button>
+                <button class="add-new-line-btn" onclick="onAddNewLine()"><img src="img/system/ICONS/add.png"></button>
+                <button class="decrease-font-btn" onclick="onChangeFontSize(-1)"><img
+                        src="img/system/ICONS/decreasefont-icon.png"></button>
+                <button class="increase-font-btn" onclick="onChangeFontSize(+1)"><img
+                        src="img/system/ICONS/increase-font-icon.png"></button>
+                <button class="align-right-btn" onclick="onChangeAlign('right')"><img
+                        src="img/system/ICONS/align-to-right.png"></button>
+                <button class="align-center-btn" onclick="onChangeAlign('center')"><img
+                        src="img/system/ICONS/center-text-alignment.png"></button>
+                <button class="align-left-btn" onclick="onChangeAlign('left')"><img
+                        src="img/system/ICONS/align-to-left.png"></button>
+                <button class="switch-line-btn" onclick="onSwitchLine()"><img
+                        src="img/system/ICONS/up-and-down.png"></button>
+                <select class="font-family" onchange="onChangeFont(this.value)">
+                    <option>Impact</option>
+                    <option>Arial</option>
+                    <option>Georgia</option>
+                </select>
+                <button class="txt-stroke-btn" onclick="onTxtStroke()"><img
+                        src="img/system/ICONS/text stroke.png"></button>
+                <button class="delete-line-btn" onclick="onDeleteLine()"><img src="img/system/ICONS/trash.png"></button>
+                <button class="download-btn"><a href="#" onclick="downloadCanvas(this)"
+                        download="my-meme-canvas.jpg"></a>Download</button>
+                <button class="share-btn" onclick="uploadImg()">Share</button>
+                <button class="move-line-down-btn " onclick="onMoveLine(20)"><img
+                        src="img/system/ICONS/down.png"></button>
+                <button class="move-line-up-btn" onclick="onMoveLine(-20)"><img src="img/system/ICONS/up.png"></button>
+            </div>
+
         </div>
     </section>
 
-    <section class="gallery">
+    <section class="gallery main-layout">
 
     </section>
 
+    <p class="user-msg"></p>
+    <div class="share-container"></div>
+    <footer>
+        <div class="footer-container main-layout flex direction-column align-center space-between">
+            <div class="logo"><img src="img/system/LOGO.png" alt="" class="logo-image" /></div>
+            <p>all rights reserved 2019</p>
+        </div>
+    </footer>
 
     <script src="js/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>

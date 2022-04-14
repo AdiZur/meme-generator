@@ -3,7 +3,7 @@
 @import 'setup/typography.css';
 
 /* BASE */
-@import url('basic/base.css');
+@import 'basic/base.css';
 @import 'basic/layout.css';
 @import 'basic/helpers.css';
 
