@@ -21,23 +21,17 @@ function drawImg(meme, width, height) {
 }
 
 function drawText(meme, x, y) {
-    // console.log(x)
-    // console.log(y)
     let lines = meme.lines
     const idx = meme.selectedImgId
-    // console.log(idx)
     const line = meme.lines[idx]
-    // console.log(txt)
     lines.forEach(line => {
         gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
         gCtx.strokeStyle = 'black'
-        // gCtx.textBaseline = 'Top'
         gCtx.textAlign = `${line.align}`
         gCtx.lineWidth = 2;
         gCtx.fillText(line.txt, line.x, line.y);
         gCtx.strokeText(line.txt, line.x, line.y);
-        // gCtx.fill();
     })
     checkAlignFocus()
 
@@ -49,36 +43,27 @@ function onChangeLineTxt(value) {
 }
 
 function onChangeTxtColor(color) {
-    console.log(color)
     changeTxtColor(color)
     renderMeme()
 }
 
 function onChangeFontSize(value) {
-    console.log('fontsize')
     setFontSize(value)
     renderMeme()
 }
 
 function onAddNewLine() {
-    console.log('newline')
     meme = getMeme()
-    console.log(meme.selectedLineIdx)
     addNewTextLine()
-    onSetFocus()
-    // switchLine()
-    // onSwitchLine()
     renderMeme()
+    checkAlignFocus()
 }
 
 function onSwitchLine() {
     let meme = getMeme()
-    onSetFocus()
-    console.log(meme.selectedLineIdx)
     switchLine(meme.selectedLineIdx)
-    // console.log(newCurrLine)
-    // document.querySelector('.txt-line').value = meme.lines[newCurrLine].txt;
     renderMeme()
+    checkAlignFocus()
 }
 
 function downloadCanvas(elLink) {
@@ -129,18 +114,8 @@ function onChangeFont(font) {
 
 function onChangeAlign(value) {
     setAlign(value)
-    // renderMeme()
+    renderMeme()
 }
-
-// function onKeywordsSearch(string) {
-//     let searchOptions = getFilteredKeywords(string).reduce((acc, option) => {
-//         acc += `<option value="${option.word}">`;
-//         return acc;
-//     }, '');
-//     document.querySelector('#search-options').innerHTML = searchOptions;
-//     updateSearchFilter(string);
-//     initImagesGallery();
-// }
 
 function onDeleteLine() {
     deleteLine()
@@ -155,12 +130,12 @@ function drawRect(x, y, xEnd, yEnd) {
     gCtx.lineWidth = 2;
     gCtx.strokeStyle = 'black';
     gCtx.stroke();
-    renderMeme()
+    // renderMeme()
 }
 
-function onSetFocus() {
-    checkAlignFocus()
-}
+// function onSetFocus() {
+//     renderMeme()
+// }
 
 function onMoveLine(value) {
     moveLine(value)

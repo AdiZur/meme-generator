@@ -1,5 +1,4 @@
 'use strict'
-
 function initPage() {
     renderGallery()
 }
@@ -12,7 +11,6 @@ function renderGallery() {
 }
 
 function onSetImg(imgId) {
-    // console.log(imgId)
     setImg(imgId)
     document.querySelector('.gallery').style.display = 'none'
     document.querySelector('.meme-editor').style.display = 'block'

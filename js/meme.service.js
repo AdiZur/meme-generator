@@ -33,10 +33,7 @@ function getMeme() {
 }
 
 function setLineTxt(txt) {
-    // if (!lines[currLine].txt) return
-    console.log('selectedLineIdx', gMeme.selectedLineIdx)
     let currLine = gMeme.selectedLineIdx
-    console.log(currLine)
     gMeme.lines[currLine].txt = txt
 }
 
@@ -74,11 +71,8 @@ function _createLine() {
 }
 
 function switchLine() {
-    console.log(gMeme.selectedLineIdx)
     let newLine = gMeme.selectedLineIdx++
     if (gMeme.selectedLineIdx >= gMeme.lines.length) newLine = gMeme.selectedLineIdx = 0
-    console.log(newLine)
-    // return newLine
 }
 
 function setFont(font) {
@@ -88,27 +82,19 @@ function setFont(font) {
 
 function setAlign(align) {
     let currLine = gMeme.selectedLineIdx
-    log(align)
     gMeme.lines[currLine].align = align
-
 }
 
 function deleteLine() {
-    console.log(gMeme.lines)
     let currLine = gMeme.selectedLineIdx
     gMeme.lines.splice(currLine, 1)
-    console.log(gMeme.lines)
 }
 
 function checkAlignFocus() {
     let currLine = gMeme.selectedLineIdx
-    console.log(currLine)
     let txt = gMeme.lines[currLine].txt
-    console.log(txt)
     let x = gElCanvas.width / 2
     let y = gMeme.lines[currLine].y
-    console.log('x', x, 'y', y)
-    console.log(gMeme.lines[currLine].align)
     switch (gMeme.lines[currLine].align) {
         case 'center':
             drawRect(x - gCtx.measureText(txt).width / 2, y - parseInt(gCtx.font) * 1.5, gCtx.measureText(txt).width, parseInt(gCtx.font) * 2)
@@ -120,13 +106,12 @@ function checkAlignFocus() {
             drawRect(x - gCtx.measureText(txt).width, y - parseInt(gCtx.font) * 1.5, gCtx.measureText(txt).width, parseInt(gCtx.font) * 2)
             break;
     }
+    console.log('out')
 }
 
 
 function moveLine(value) {
     let currLine = gMeme.selectedLineIdx
-    console.log(value)
-    console.log('gMeme[currLine].line', gMeme.lines[currLine].y)
     if (gMeme.lines[currLine].y < 60 && value < 0) return
     else if (gMeme.lines[currLine].y > 370 && value > 0) return
     gMeme.lines[currLine].y += value
