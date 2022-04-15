@@ -27,7 +27,7 @@ function drawText(meme, x, y) {
     lines.forEach(line => {
         gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
-        gCtx.strokeStyle = 'black'
+        gCtx.strokeStyle = `${line.strokeStyle}`
         gCtx.textAlign = `${line.align}`
         gCtx.lineWidth = 2;
         gCtx.fillText(line.txt, line.x, line.y);
@@ -55,6 +55,7 @@ function onChangeFontSize(value) {
 function onAddNewLine() {
     meme = getMeme()
     addNewTextLine()
+    document.querySelector('input[name="txt-line"]').value = ''
     renderMeme()
     checkAlignFocus()
 }
@@ -62,14 +63,19 @@ function onAddNewLine() {
 function onSwitchLine() {
     let meme = getMeme()
     switchLine(meme.selectedLineIdx)
+    document.querySelector('input[name="txt-line"]').value = ''
     renderMeme()
     checkAlignFocus()
 }
 
 function downloadCanvas(elLink) {
+    console.log('download')
+    console.log(elLink)
+    console.log(gElCanvas)
     const data = gElCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'canvas.jpg'
+    console.log('data')
 }
 
 function uploadImg() {
@@ -130,14 +136,15 @@ function drawRect(x, y, xEnd, yEnd) {
     gCtx.lineWidth = 2;
     gCtx.strokeStyle = 'black';
     gCtx.stroke();
-    // renderMeme()
 }
-
-// function onSetFocus() {
-//     renderMeme()
-// }
 
 function onMoveLine(value) {
     moveLine(value)
     renderMeme()
 }
+
+function onChangeStrokeStyle(value) {
+    changeStrokeStyle(value)
+    renderMeme()
+}
+

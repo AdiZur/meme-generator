@@ -11,6 +11,7 @@ var gMeme = {
             size: 30,
             align: 'center',
             color: 'white',
+            strokeStyle: 'black',
             x: 200,
             y: 57,
             isDrag: false
@@ -21,6 +22,7 @@ var gMeme = {
             size: 30,
             align: 'center',
             color: 'white',
+            strokeStyle: 'black',
             x: 200,
             y: 370,
             isDrag: false
@@ -64,6 +66,7 @@ function _createLine() {
         size: 30,
         align: 'center',
         color: 'white',
+        strokeStyle: 'black',
         x: 200,
         y: 220,
         isDrag: false
@@ -106,7 +109,6 @@ function checkAlignFocus() {
             drawRect(x - gCtx.measureText(txt).width, y - parseInt(gCtx.font) * 1.5, gCtx.measureText(txt).width, parseInt(gCtx.font) * 2)
             break;
     }
-    console.log('out')
 }
 
 
@@ -117,3 +119,7 @@ function moveLine(value) {
     gMeme.lines[currLine].y += value
 }
 
+function changeStrokeStyle(color) {
+    let currLine = gMeme.selectedLineIdx
+    gMeme.lines[currLine].strokeStyle = color
+}

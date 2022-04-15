@@ -19,3 +19,7 @@
     font-size: 17px;
     cursor: pointer;
 }
+
+.main-header .main-nav li:hover {
+    color: var(--clr5);
+}

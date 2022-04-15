@@ -10,6 +10,7 @@
 </head>
 
 <body onload="initPage()">
+    <div class="main-screen"></div>
     <header class="header-container">
         <div class="main-header flex align-center main-layout space-between">
             <div class="logo"><img src="img/system/LOGO.png" alt="" class="logo-image" /></div>
@@ -48,13 +49,13 @@
                     <option>Arial</option>
                     <option>Georgia</option>
                 </select>
-                <button class="txt-stroke-btn" onclick="onTxtStroke()"><img
-                        src="img/system/ICONS/text stroke.png"></button>
+                <button class="txt-stroke-btn"><img src="img/system/ICONS/text stroke.png"><input type="color"
+                        name="txt-color" onchange="onChangeStrokeStyle(this.value)"></button>
                 <button class="delete-line-btn" onclick="onDeleteLine()"><img src="img/system/ICONS/trash.png"></button>
-                <button class="download-btn"><a href="#" onclick="downloadCanvas(this)"
-                        download="my-meme-canvas.jpg"></a>Download</button>
+                <button class="download-btn"><a href="#" download="my-meme-canvas.jpg"
+                        onclick="downloadCanvas(this)">Download</a></button>
                 <button class="share-btn" onclick="uploadImg()">Share</button>
-                <button class="move-line-down-btn " onclick="onMoveLine(20)"><img
+                <button class="move-line-down-btn" onclick="onMoveLine(20)"><img
                         src="img/system/ICONS/down.png"></button>
                 <button class="move-line-up-btn" onclick="onMoveLine(-20)"><img src="img/system/ICONS/up.png"></button>
             </div>
@@ -79,6 +80,7 @@
     <script src="js/gallery.controller.js"></script>
     <script src="js/gallery.service.js"></script>
     <script src="js/meme.controller.js"></script>
+
 </body>
 
 </html>
