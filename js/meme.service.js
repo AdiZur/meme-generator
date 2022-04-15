@@ -8,23 +8,23 @@ var gMeme = {
         {
             txt: 'TEXT COMES HERE',
             font: 'Impact',
-            size: 30,
+            size: 25,
             align: 'center',
             color: 'white',
             strokeStyle: 'black',
-            x: 200,
-            y: 57,
+            x: 175,
+            y: 50,
             isDrag: false
         },
         {
             txt: 'TEXT COMES HERE',
             font: "Impact",
-            size: 30,
+            size: 25,
             align: 'center',
             color: 'white',
             strokeStyle: 'black',
-            x: 200,
-            y: 370,
+            x: 175,
+            y: 330,
             isDrag: false
         }
 
@@ -61,14 +61,14 @@ function _createLine() {
     gMeme.selectedLineIdx = gMeme.lines.length
 
     return {
-        txt: 'Add Text',
+        txt: 'TEXT COMES HERE',
         font: 'Impact',
-        size: 30,
+        size: 25,
         align: 'center',
         color: 'white',
         strokeStyle: 'black',
-        x: 200,
-        y: 220,
+        x: 175,
+        y: 175,
         isDrag: false
     }
 }
@@ -93,7 +93,8 @@ function deleteLine() {
     gMeme.lines.splice(currLine, 1)
 }
 
-function checkAlignFocus() {
+function checkAlignFocus(val) {
+    if (!val) return
     let currLine = gMeme.selectedLineIdx
     let txt = gMeme.lines[currLine].txt
     let x = gElCanvas.width / 2
@@ -114,12 +115,48 @@ function checkAlignFocus() {
 
 function moveLine(value) {
     let currLine = gMeme.selectedLineIdx
-    if (gMeme.lines[currLine].y < 60 && value < 0) return
-    else if (gMeme.lines[currLine].y > 370 && value > 0) return
+    if (gMeme.lines[currLine].y < 50 && value < 0) return
+    else if (gMeme.lines[currLine].y > 320 && value > 0) return
     gMeme.lines[currLine].y += value
 }
 
 function changeStrokeStyle(color) {
     let currLine = gMeme.selectedLineIdx
     gMeme.lines[currLine].strokeStyle = color
+}
+
+function resetMeme() {
+    gMeme.lines.forEach(line => {
+        deleteLine()
+    });
+    gMeme = {
+        selectedImgId: 1,
+        selectedLineIdx: 0,
+        lines: [
+            {
+                txt: 'TEXT COMES HERE',
+                font: 'Impact',
+                size: 30,
+                align: 'center',
+                color: 'white',
+                strokeStyle: 'black',
+                x: 175,
+                y: 50,
+                isDrag: false
+            },
+            {
+                txt: 'TEXT COMES HERE',
+                font: "Impact",
+                size: 30,
+                align: 'center',
+                color: 'white',
+                strokeStyle: 'black',
+                x: 175,
+                y: 330,
+                isDrag: false
+            }
+
+        ]
+    }
+    checkAlignFocus(0)
 }

@@ -22,7 +22,7 @@ function drawImg(meme, width, height) {
 
 
 
-function drawText(meme, x, y) {
+function drawText(meme) {
     let lines = meme.lines
     const idx = meme.selectedImgId
     const line = meme.lines[idx]
@@ -35,8 +35,7 @@ function drawText(meme, x, y) {
         gCtx.fillText(line.txt, line.x, line.y);
         gCtx.strokeText(line.txt, line.x, line.y);
     })
-    checkAlignFocus()
-
+    checkAlignFocus(1)
 }
 
 function onChangeLineTxt(value) {
@@ -59,7 +58,7 @@ function onAddNewLine() {
     addNewTextLine()
     document.querySelector('input[name="txt-line"]').value = ''
     renderMeme()
-    checkAlignFocus()
+    checkAlignFocus(1)
 }
 
 function onSwitchLine() {
@@ -67,22 +66,17 @@ function onSwitchLine() {
     switchLine(meme.selectedLineIdx)
     document.querySelector('input[name="txt-line"]').value = ''
     renderMeme()
-    checkAlignFocus()
+    checkAlignFocus(1)
 }
 
 function downloadCanvas(elLink) {
-    console.log('download')
-    console.log(elLink)
-    console.log(gElCanvas)
     const data = gElCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'canvas.jpg'
-    console.log('data')
 }
 
 function uploadImg() {
     const imgDataUrl = gElCanvas.toDataURL("image/jpeg");
-
     // A function to be called if request succeeds
     function onSuccess(uploadedImgUrl) {
         const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)

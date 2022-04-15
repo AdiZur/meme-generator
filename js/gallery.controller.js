@@ -20,6 +20,8 @@ function onSetImg(imgId) {
 function onGallery() {
     document.querySelector('.meme-editor').style.display = 'none'
     document.querySelector('.gallery').style.display = 'grid'
+    document.querySelector('input[name="txt-line"]').value = ''
+    resetMeme()
 }
 
 

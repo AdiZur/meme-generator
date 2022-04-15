@@ -1,23 +1,22 @@
 .header-container {
-    height: 4rem;
+    height: 40px;
     background-color: var(--clr1);
     margin-bottom: 20px;
 }
 
-/* .main-header .logo {
-    height: 40px;
-} */
+.maim-header .main-nav {
+    padding: 0.3rem;
 
+}
 .header-container .main-header .logo img {
-    height: 30px;
+    height: 25px;
 }
 
 .main-header .main-nav li {
-    margin: 10px;
-    padding: 20px;
     color: var(--clr3);
     font-size: 17px;
     cursor: pointer;
+    padding-left: 20px
 }
 
 .main-header .main-nav li:hover {
