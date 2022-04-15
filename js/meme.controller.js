@@ -20,6 +20,8 @@ function drawImg(meme, width, height) {
     };
 }
 
+
+
 function drawText(meme, x, y) {
     let lines = meme.lines
     const idx = meme.selectedImgId
