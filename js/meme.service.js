@@ -1,7 +1,7 @@
 'use ctrict'
 // let gImg =  [{id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat']}];
 
-var gMeme = {
+let gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
@@ -30,6 +30,8 @@ var gMeme = {
 
     ]
 }
+
+// let gEmojies = ['👄', '🙂', '🕶️', '♥️', '🪅', '🦴', '🐽', '👉🏼']
 function getMeme() {
     return gMeme
 }
@@ -137,7 +139,7 @@ function resetMeme() {
             {
                 txt: 'TEXT COMES HERE',
                 font: 'Impact',
-                size: 30,
+                size: 25,
                 align: 'center',
                 color: 'white',
                 strokeStyle: 'black',
@@ -148,7 +150,7 @@ function resetMeme() {
             {
                 txt: 'TEXT COMES HERE',
                 font: "Impact",
-                size: 30,
+                size: 25,
                 align: 'center',
                 color: 'white',
                 strokeStyle: 'black',
@@ -161,3 +163,26 @@ function resetMeme() {
     }
     checkAlignFocus(0)
 }
+
+// function getEmojies() {
+//     return gEmojies
+// }
+
+// function changeCarouselForDisplay(val) {
+//     console.log(val)
+//     if (val === -1) {
+//         let firstElement = gEmojies.shift()
+//         console.log(gEmojies)
+
+//         gEmojies.push(firstElement)
+//         console.log(gEmojies)
+
+//     } else {
+//         let lastElement = gEmojies.splice(gEmojies.length, 1)
+//         console.log(gEmojies)
+
+//         gEmojies.unshift(lastElement)
+//         console.log(gEmojies)
+
+//     }
+// }

@@ -1,7 +1,6 @@
 'use ctrict'
 let gElCanvas
 let gCtx
-// let gDownload = false
 
 function renderMeme() {
     gElCanvas = document.querySelector('#my-canvas')
@@ -22,7 +21,6 @@ function drawImg(meme, width, height) {
 }
 
 
-
 function drawText(meme) {
     let lines = meme.lines
     const idx = meme.selectedImgId
@@ -30,13 +28,13 @@ function drawText(meme) {
     lines.forEach(line => {
         gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
+
         gCtx.strokeStyle = `${line.strokeStyle}`
         gCtx.textAlign = `${line.align}`
         gCtx.lineWidth = 2;
         gCtx.fillText(line.txt, line.x, line.y);
         gCtx.strokeText(line.txt, line.x, line.y);
     })
-    // gDownload ? checkAlignFocus(0) : checkAlignFocus(1)
     checkAlignFocus(1)
 
 }
@@ -73,13 +71,9 @@ function onSwitchLine() {
 }
 
 function downloadCanvas(elLink) {
-    // gDownload = true
-    // renderMeme()
     const data = gElCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'canvas.jpg'
-    // gDownload = false
-    // renderMeme()
 }
 
 function uploadImg() {
@@ -152,3 +146,18 @@ function onChangeStrokeStyle(value) {
     renderMeme()
 }
 
+// function renderEmojies() {
+
+//     let emojiesForDisplay = getEmojies().slice(0, 3)
+//     console.log(emojiesForDisplay)
+//     console.log(document.querySelector('.emojies span'))
+//     let strHTML = emojiesForDisplay.join('')
+//     console.log(strHTML)
+//     document.querySelector('.emojies span').innerText = strHTML
+
+// }
+
+// function onClickCarousel(val) {
+//     changeCarouselForDisplay(val)
+//     renderEmojies()
+// }

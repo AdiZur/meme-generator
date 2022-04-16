@@ -34,12 +34,14 @@
     "switch-line-btn move-line-down-btn move-line-up-btn add-new-line-btn delete-line-btn"
     "increase-font-btn decrease-font-btn align-left-btn align-center-btn align-right-btn"
     "font-family font-family font-family txt-stroke-btn color-btn "
+    /* "left-btn-carousel emojies emojies emojies right-btn-carousel" */
     "download-btn download-btn . share-btn share-btn";
 }
 
 .txt-line {
     grid-area: txt-line;
-}
+}   
+
 
 .switch-line-btn {
     grid-area: switch-line-btn;
@@ -103,6 +105,23 @@
 .txt-stroke-btn {
     grid-area: txt-stroke-btn;
 }
+
+
+/* .left-btn-carousel {
+    grid-area: left-btn-carousel;
+}
+.right-btn-carousel {
+    grid-area: right-btn-carousel;
+}
+
+.emojies { 
+    grid-area: emojies;
+    background-color: var(--clr3);
+    border-radius: 10px;
+    height: 65%;
+    justify-self: center;
+    font-size: 30px;
+} */
 
 input {
     border-radius: 10px;
