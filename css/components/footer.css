@@ -1,4 +1,4 @@
-footer {
+.footer-container {
     height: 200px;
     background-color: var(--clr1);
     bottom: 0;
@@ -6,10 +6,15 @@ footer {
     width: 100%;
 }
 
-footer .logo-image {
-    height: 40px;
+.main-footer {
+    margin: auto;
+
 }
 
-footer p {
+.main-footer .logo-image {
+    height: 30px;
+}
+
+.main-footer .rights {
     color: var(--clr3);
 }

@@ -105,8 +105,9 @@
 }
 
 input {
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
+    height: 70%;
 }
 
 button {
@@ -125,8 +126,9 @@ button img{
 }
 
 select.font-family {
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
+    height: 70%;
 }
 
 input[type=color] {

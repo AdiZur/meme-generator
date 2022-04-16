@@ -24,5 +24,6 @@ function onGallery() {
     resetMeme()
 }
 
-
-
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
+}
