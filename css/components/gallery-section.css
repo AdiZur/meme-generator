@@ -1,6 +1,6 @@
 .gallery {
-    margin: 0 auto;
-    width: 80vw;
+    margin: auto;
+    margin-top: 15px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
     grid-gap: 30px;

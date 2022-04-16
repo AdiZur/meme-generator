@@ -1,9 +1,16 @@
-.header-container {
+/* .header-container {
     height: 40px;
     background-color: var(--clr1);
     margin-bottom: 20px;
 }
+*/
 
+.header-container {
+        background-color: var(--clr1);
+
+}
+
+/*
 .maim-header .main-nav {
     padding: 0.3rem;
 
@@ -18,7 +25,29 @@
     cursor: pointer;
     padding-left: 20px
 }
-
+*/
 .main-header .main-nav li:hover {
     color: var(--clr5);
+} 
+
+.main-header {
+    min-height: 40px;
+}
+
+.main-header .logo img{
+    height: 25px;
+}
+
+main header .main-nav a {
+    height: 40px;
+    width: 40px;
+}
+.main-header .main-nav > *:not(:last-child) {
+margin-inline-end: 25px;
+}
+
+.main-nav li:hover {
+    cursor: pointer;
+    color: var(--clr3);
+
 }

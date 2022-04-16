@@ -1,51 +1,53 @@
-@media (max-width: 920px) {
+@media (max-width: 640px) {
     .canvas-container {
         flex-direction: column;
-        gap: 40px;
     }
     .gallery {
         display: grid;
         grid-template-columns: repeat(2, minmax(40px,1fr));
         grid-gap: 10px;
+        width: 90%;
+    }
 
+    #my-canvas {
+        margin-top:15px;
+        margin-bottom: 30px;
+    }
+
+    .control-box {
+        margin-top: 0;
     }
 
 }
 
 /* SMALL */
 
-@media (min-width: 700px) {
+@media (min-width: 640px) {
     .main-layout {
-        max-width: 660px;
-        margin: 0 auto;
+        max-width: 600px;
+        margin: auto;
 
     }
-    .gallery {
-        margin: 0 auto;
-        width: 80vw;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
-        grid-gap: 30px;
-    }
-    .canvas-container {
-        flex-direction: row;
-            gap: 40px
+    .control-box {
+        margin-top: 15px;
     }
 }
 
 
 /* MEDIUM */
 
-@media (min-width: 920px) {
+@media (min-width: 880px) {
     .main-layout {
-        max-width: 860px;
+        max-width: 840px;
     }
+
+
 }
 
 /* LARGE */
 
-@media (min-width: 1120px) {
+@media (min-width: 1020px) {
     .main-layout {
-        max-width: 1060px;
+        max-width: 980px;
     }
 }

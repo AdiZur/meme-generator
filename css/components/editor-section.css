@@ -7,6 +7,10 @@
     width: 40vw;
 }
 
+.canvas-editor {
+    margin-top:15px;
+
+}
 .meme-editor {
     margin: 0 auto;
 
@@ -19,7 +23,7 @@
 }
 .control-box {
     width: 400px;
-    height: 50vh;
+    margin-top: 20px;
     display: grid;
     grid-template: repeat(5, 70px) / repeat(5, 50px);
     gap: 5px; 
