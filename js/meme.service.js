@@ -59,7 +59,6 @@ function addNewTextLine() {
 
 function _createLine() {
     gMeme.selectedLineIdx = gMeme.lines.length
-
     return {
         txt: 'TEXT COMES HERE',
         font: 'Impact',
@@ -91,11 +90,13 @@ function setAlign(align) {
 function deleteLine() {
     let currLine = gMeme.selectedLineIdx
     gMeme.lines.splice(currLine, 1)
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
 function checkAlignFocus(val) {
     if (!val) return
     let currLine = gMeme.selectedLineIdx
+    if (gMeme.selectedLineIdx < 0) return
     let txt = gMeme.lines[currLine].txt
     let x = gElCanvas.width / 2
     let y = gMeme.lines[currLine].y

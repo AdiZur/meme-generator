@@ -1,6 +1,7 @@
 'use ctrict'
 let gElCanvas
 let gCtx
+// let gDownload = false
 
 function renderMeme() {
     gElCanvas = document.querySelector('#my-canvas')
@@ -35,7 +36,9 @@ function drawText(meme) {
         gCtx.fillText(line.txt, line.x, line.y);
         gCtx.strokeText(line.txt, line.x, line.y);
     })
+    // gDownload ? checkAlignFocus(0) : checkAlignFocus(1)
     checkAlignFocus(1)
+
 }
 
 function onChangeLineTxt(value) {
@@ -70,9 +73,13 @@ function onSwitchLine() {
 }
 
 function downloadCanvas(elLink) {
+    // gDownload = true
+    // renderMeme()
     const data = gElCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'canvas.jpg'
+    // gDownload = false
+    // renderMeme()
 }
 
 function uploadImg() {
@@ -121,6 +128,7 @@ function onChangeAlign(value) {
 
 function onDeleteLine() {
     deleteLine()
+    console.log('delete')
     renderMeme()
 }
 
